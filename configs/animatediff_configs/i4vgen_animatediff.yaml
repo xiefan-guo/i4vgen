@@ -1,0 +1,16 @@
+I4VGen:
+  inference_config: "configs/animatediff_configs/inference/inference-v2.yaml"
+  motion_module:
+    - "[path to motion module]"
+
+  seed:           [101, 105]
+  steps:          25
+  guidance_scale: 7.5
+
+  prompt:
+    - "a drone flying over a snowy forest"
+    - "A boat sailing leisurely along the Seine River with the Eiffel Tower in background, Van Gogh style"
+
+  n_prompt:
+    - ""
+    - ""
