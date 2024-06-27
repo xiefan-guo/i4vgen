@@ -714,7 +714,7 @@ def convert_ldm_bert_checkpoint(checkpoint, config):
 
 
 def convert_ldm_clip_checkpoint(checkpoint):
-    text_model = CLIPTextModel.from_pretrained("/data/vdb/guoxiefan.gxf/damo_workspace/huggingface/openai/clip-vit-large-patch14")
+    text_model = CLIPTextModel.from_pretrained("openai/clip-vit-large-patch14")
     keys = list(checkpoint.keys())
 
     text_model_dict = {}
@@ -753,7 +753,7 @@ textenc_pattern = re.compile("|".join(protected.keys()))
 
 
 def convert_paint_by_example_checkpoint(checkpoint):
-    config = CLIPVisionConfig.from_pretrained("/data/vdb/guoxiefan.gxf/damo_workspace/huggingface/openai/clip-vit-large-patch14")
+    config = CLIPVisionConfig.from_pretrained("openai/clip-vit-large-patch14")
     model = PaintByExampleImageEncoder(config)
 
     keys = list(checkpoint.keys())
@@ -880,7 +880,7 @@ def stable_unclip_image_encoder(original_config):
 
         if clip_model_name == "ViT-L/14":
             feature_extractor = CLIPImageProcessor()
-            image_encoder = CLIPVisionModelWithProjection.from_pretrained("/data/vdb/guoxiefan.gxf/damo_workspace/huggingface/openai/clip-vit-large-patch14")
+            image_encoder = CLIPVisionModelWithProjection.from_pretrained("openai/clip-vit-large-patch14")
         else:
             raise NotImplementedError(f"Unknown CLIP checkpoint name in stable diffusion checkpoint {clip_model_name}")
 
